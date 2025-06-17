@@ -1,1 +1,128 @@
-# qb-starterpack
+## ▶️ Main Features
+
+- **Comprehensive Starter Pack:** New players can claim a one-time package containing cash, bank money, essential items, a personal vehicle, and a driver's license.
+- **Weekly Loyalty Rewards:** Existing players who have already claimed the starter pack can return to the NPC weekly to receive random item rewards, encouraging player retention.
+- **Modular Inventory Integration:** Natively supports both `qb-inventory` (default) and `ox_inventory` through a simple configuration setting.
+- **Automatic Discord Logs:** Every time a starter pack is claimed, a detailed notification is sent to a designated admin channel via a Discord webhook.
+- **Rules UI:** Before claiming their pack, new players must read and agree to configurable server rules.
+- **Anti-Abuse System:** A solid system based on character metadata prevents players from repeatedly claiming the starter pack.
+- **Easy Configuration:** Nearly every aspect (rewards, NPC, vehicle, messages) can be easily modified through the `config.lua` file.
+
+## ⚙️ Requirements (Kebutuhan)
+
+- **[qb-core](https://github.com/qbcore-framework/qb-core):**
+- **[qb-target](https://github.com/qbcore-framework/qb-target):** 
+- **[ox_lib](https://github.com/overextended/ox_lib):** 
+- **[oxmysql](https://github.com/overextended/oxmysql):**
+
+## 🛠️ Installation
+
+1.  Download this script and place the `qb-starterpack` folder into your server's `resources` directory.
+2.  (Optional) If you plan to use `ox_inventory`, ensure that resource is also installed.
+3.  Open `config.lua` and adjust all settings to your preference (see the **Configuration** section below).
+4.  Add the following line to your `server.cfg` file, making sure it is placed **after** all the required dependencies:
+    ```cfg
+    ensure qb-starterpack
+    ```
+5.  Restart your server or run `refresh; ensure qb-starterpack` in the server console. The NPC will now appear at your configured location.
+
+## 🔧 Configuration
+```json
+--[[ 
+    QB-StarterPack
+    version: 1.0.4
+    author: AnyaProject
+    Discord: https://discord.gg/anyaproject
+]]--
+
+Config = {}
+
+Config.Inventory = 'qb'  -- Choose 'qb' or 'ox' based on the inventory system being used
+
+-- NPC Settings
+Config.NPC = {
+    model = 's_m_y_swat_01',
+    coords = vector4(-239.88, -989.92, 29.29, 249.91),
+}
+
+-- Target Interaction Settings
+Config.Target = {
+    label = 'Claim Starter Pack',
+    icon = 'fas fa-gift',
+}
+
+-- Starter Pack Items
+Config.StarterPack = {
+    Money = { cash = 5000, bank = 10000 },
+    Items = {
+        { name = 'phone', amount = 1 },
+        { name = 'water_bottle', amount = 5 },
+        { name = 'sandwich', amount = 5 },
+    }
+}
+
+-- Starter Vehicle Settings
+Config.Vehicle = {
+    enabled = true,
+    model = 'sultan',
+    spawnMethod = 'spawn', -- Options: 'spawn' or 'garage'
+    garage = 'pillboxgarage', -- Garage name if spawnMethod = 'garage'
+    spawnPoint = vector4(-225.5, -961.65, 29.2, 155.29), -- Spawn location if spawnMethod = 'spawn'
+    giveLicense = true -- Option to automatically give driving license
+}
+
+-- Notification Messages
+Config.Pesan = {
+    sukses = 'Congratulations! You have received your Starter Pack.',
+    sudah_klaim = 'You have already claimed this pack.',
+}
+
+-- Rules UI Configuration
+Config.Rules = {
+    header = "CITY RULES",
+    text = "Welcome to our city! Before proceeding, please read and agree to the rules below:\n\n" ..
+           "1. **No RDM & VDM:** Do not kill or hit other players without clear roleplay reasons.\n\n" ..
+           "2. **Fear RP:** Value your life. If threatened with a weapon, you must act afraid and comply.\n\n" ..
+           "3. **Metagaming & Powergaming:** Do not use out-of-character (OOC) information in-character (IC).\n\n" ..
+           "By clicking the 'Agree' button, you confirm that you have read, understood, and will follow all city rules.",
+    button = {
+        submit = "Agree & Claim",
+        cancel = "Decline"
+    }
+}
+
+-- Discord Log Configuration
+Config.Discord = {
+    enabled = false, -- set to false to disable logging
+    webhook = "Url_webhook" 
+}
+
+-- Weekly Claim Configuration
+Config.WeeklyClaim = {
+    enabled = true,
+    cooldown_days = 7,
+    itemsToGive = 2,
+    RewardPool = {
+        { name = 'sandwich', amount = 5 },
+        { name = 'water_bottle', amount = 5 },
+        { name = 'lockpick', amount = 3 },
+        { name = 'advancedlockpick', amount = 1 },
+        { name = 'bandage', amount = 4 },
+        { name = 'money-roll', amount = 1 },
+        { name = 'goldbar', amount = 1 },
+    },
+    Pesan = {
+        sukses = "You have successfully claimed your weekly reward! See you next week.",
+        tunggu = "You can claim again in: ",
+        penuh = "Your inventory is full! Please try again later.",
+    }
+}
+```
+#### PREVIEW
+https://imgur.com/a/NoiJWai
+https://imgur.com/a/rikW7b3
+https://imgur.com/a/U1AozBP
+
+
+
+
