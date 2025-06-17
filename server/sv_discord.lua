@@ -1,7 +1,7 @@
 
 local function SendToDiscord(playerData)
  
-    if not Config.Discord.enabled or Config.Discord.webhook == "URL_WEBHOOK_KAMU_DI_SINI" or Config.Discord.webhook == "" then 
+    if not Config.Discord.enabled or Config.Discord.webhook == "url_webhook" or Config.Discord.webhook == "" then 
         return 
     end
 
