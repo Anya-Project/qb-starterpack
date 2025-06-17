@@ -28,13 +28,6 @@
 
 ## 🔧 Configuration
 ```json
---[[ 
-    QB-StarterPack
-    version: 1.0.4
-    author: AnyaProject
-    Discord: https://discord.gg/anyaproject
-]]--
-
 Config = {}
 
 Config.Inventory = 'qb'  -- Choose 'qb' or 'ox' based on the inventory system being used
@@ -117,6 +110,7 @@ Config.WeeklyClaim = {
         penuh = "Your inventory is full! Please try again later.",
     }
 }
+
 ```
 #### PREVIEW
 https://imgur.com/a/NoiJWai
