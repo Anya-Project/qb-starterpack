@@ -2,7 +2,7 @@
     QB-StarterPack
     Versi: 1.0.4
     Penulis: AnyaProject
-    Discord: https://discord.gg/anyaproject
+    Discord: https://discord.gg/rcqQ3J6Pcf
 ]]--
 
 local QBCore = nil

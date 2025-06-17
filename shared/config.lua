@@ -2,7 +2,7 @@
     QB-StarterPack
     version: 1.0.4
     author: AnyaProject
-    Discord: https://discord.gg/anyaproject
+    Discord: https://discord.gg/rcqQ3J6Pcf
 ]]--
 
 Config = {}
