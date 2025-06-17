@@ -14,10 +14,10 @@
 
 ## ⚙️ Requirements (Kebutuhan)
 
-- **[qb-core](https://github.com/qbcore-framework/qb-core):**
-- **[qb-target](https://github.com/qbcore-framework/qb-target):** 
-- **[ox_lib](https://github.com/overextended/ox_lib):** 
-- **[oxmysql](https://github.com/overextended/oxmysql):**
+- **[qb-core](https://github.com/qbcore-framework/qb-core)**
+- **[qb-target](https://github.com/qbcore-framework/qb-target)** 
+- **[ox_lib](https://github.com/overextended/ox_lib)** 
+- **[oxmysql](https://github.com/overextended/oxmysql)**
 
 ## 🛠️ Installation
 
