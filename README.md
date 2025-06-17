@@ -1,3 +1,7 @@
+### Hi, I'm Max! 👋 
+📫 Reach me at: (https://discord.gg/rcqQ3J6Pcf)
+
+
 ## ▶️ Main Features
 
 - **Comprehensive Starter Pack:** New players can claim a one-time package containing cash, bank money, essential items, a personal vehicle, and a driver's license.
