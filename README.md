@@ -31,7 +31,7 @@
 5.  Restart your server or run `refresh; ensure qb-starterpack` in the server console. The NPC will now appear at your configured location.
 
 ## 🔧 Configuration
-```json
+```lua
 Config = {}
 
 Config.Inventory = 'qb'  -- Choose 'qb' or 'ox' based on the inventory system being used
