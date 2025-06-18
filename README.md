@@ -12,7 +12,7 @@
 - **Anti-Abuse System:** A solid system based on character metadata prevents players from repeatedly claiming the starter pack.
 - **Easy Configuration:** Nearly every aspect (rewards, NPC, vehicle, messages) can be easily modified through the `config.lua` file.
 
-## ⚙️ Requirements (Kebutuhan)
+## ⚙️ Requirements
 
 - **[qb-core](https://github.com/qbcore-framework/qb-core)**
 - **[qb-target](https://github.com/qbcore-framework/qb-target)** 
