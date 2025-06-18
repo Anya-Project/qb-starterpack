@@ -34,7 +34,7 @@
 ```lua
 Config = {}
 
-Config.Inventory = 'qb'  -- Choose 'qb' or 'ox' based on the inventory system being used
+Config.Inventory = 'qb'  -- Choose 'qb' or 'ox' according to the inventory system used
 
 -- NPC Settings
 Config.NPC = {
@@ -58,30 +58,39 @@ Config.StarterPack = {
     }
 }
 
--- Starter Vehicle Settings
+-- Vehicle Configuration
 Config.Vehicle = {
     enabled = true,
     model = 'sultan',
     spawnMethod = 'spawn', -- Options: 'spawn' or 'garage'
     garage = 'pillboxgarage', -- Garage name if spawnMethod = 'garage'
     spawnPoint = vector4(-225.5, -961.65, 29.2, 155.29), -- Spawn location if spawnMethod = 'spawn'
-    giveLicense = true -- Option to automatically give driving license
+}
+
+-- Fuel System Configuration
+Config.FuelSystem = {
+    -- Choose fuel system : 'legacy', 'cdn', 'ox', or 'none'
+    system = 'legacy', 
+
+    setFuelToFull = true 
 }
 
 -- Notification Messages
 Config.Pesan = {
-    sukses = 'Congratulations! You have received your Starter Pack.',
-    sudah_klaim = 'You have already claimed this pack.',
+    sukses = 'Congratulations! You have received your Starter Pack.', 
+    sudah_klaim = 'You have already claimed this pack.', 
 }
 
 -- Rules UI Configuration
 Config.Rules = {
     header = "CITY RULES",
     text = "Welcome to our city! Before proceeding, please read and agree to the rules below:\n\n" ..
-           "1. **No RDM & VDM:** Do not kill or hit other players without clear roleplay reasons.\n\n" ..
+           "1. **No RDM & VDM:** Killing or ramming other players without a valid RP reason is strictly prohibited.\n\n" ..
            "2. **Fear RP:** Value your life. If threatened with a weapon, you must act afraid and comply.\n\n" ..
-           "3. **Metagaming & Powergaming:** Do not use out-of-character (OOC) information in-character (IC).\n\n" ..
-           "By clicking the 'Agree' button, you confirm that you have read, understood, and will follow all city rules.",
+           "3. **Metagaming & Powergaming:** Using out-of-character (OOC) information in-character (IC) is not allowed.\n\n" ..
+           "4. **No Exploits or Cheats:** Using any form of exploit or cheat to gain an unfair advantage is forbidden.\n\n" ..
+           "5. **Respect Other Players:** Treat all players with respect. Harassment or discrimination will not be tolerated.\n\n" ..
+           "By clicking the 'Agree' button, you confirm that you have read, understood, and will comply with all city rules.",
     button = {
         submit = "Agree & Claim",
         cancel = "Decline"
@@ -98,15 +107,15 @@ Config.Discord = {
 Config.WeeklyClaim = {
     enabled = true,
     cooldown_days = 7,
-    itemsToGive = 2,
+    itemsToGive = 2, 
     RewardPool = {
         { name = 'sandwich', amount = 5 },
         { name = 'water_bottle', amount = 5 },
         { name = 'lockpick', amount = 3 },
         { name = 'advancedlockpick', amount = 1 },
         { name = 'bandage', amount = 4 },
-        { name = 'money-roll', amount = 1 },
-        { name = 'goldbar', amount = 1 },
+        { name = 'money-roll', amount = 1 }, 
+        { name = 'goldbar', amount = 1 }, 
     },
     Pesan = {
         sukses = "You have successfully claimed your weekly reward! See you next week.",
