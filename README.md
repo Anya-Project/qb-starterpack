@@ -125,10 +125,11 @@ Config.WeeklyClaim = {
 }
 
 ```
-#### PREVIEW
-https://imgur.com/a/NoiJWai
-https://imgur.com/a/rikW7b3
-https://imgur.com/a/U1AozBP
+### 🔍 Preview
+
+![Preview 1](https://i.imgur.com/NoiJWai.png)
+![Preview 2](https://i.imgur.com/rikW7b3.png)
+![Preview 3](https://i.imgur.com/U1AozBP.png)
 
 
 
