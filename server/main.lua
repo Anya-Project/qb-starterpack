@@ -1,7 +1,7 @@
 --[[ 
     QB-StarterPack
-    Versi: 1.0.4
-    Penulis: AnyaProject
+    Version: 1.0.5
+    Author: AnyaProject
     Discord: https://discord.gg/rcqQ3J6Pcf
 ]]--
 
@@ -48,7 +48,7 @@ RegisterNetEvent('qb-starterpack:server:beriPaket', function()
                 MySQL.insert('INSERT INTO player_vehicles (citizenid, vehicle, hash, plate, garage, state) VALUES (?, ?, ?, ?, ?, ?)', {Player.PlayerData.citizenid, vehicleModel, GetHashKey(vehicleModel), plate, Config.Vehicle.garage, 1})
                 local vehicleLabel = QBCore.Shared.Vehicles[vehicleModel] and QBCore.Shared.Vehicles[vehicleModel].name or vehicleModel
                 local garageLabel = QBCore.Shared.Garages[Config.Vehicle.garage] and QBCore.Shared.Garages[Config.Vehicle.garage].label or Config.Vehicle.garage
-                TriggerClientEvent('QBCore:Notify', src, "Sebuah " .. vehicleLabel .. " (" .. plate .. ") telah dikirim ke " .. garageLabel .. " Anda.", "success", 10000)
+                TriggerClientEvent('QBCore:Notify', src, "A " .. vehicleLabel .. " (" .. plate .. ") has been sent to your " .. garageLabel .. ".", "success", 10000)
             end
         end
         Player.Functions.SetMetaData('has_claimed_starterpack', true); Player.Functions.Save()
@@ -75,7 +75,7 @@ RegisterNetEvent('qb-starterpack:server:claimWeekly', function()
     local currentTime = os.time()
     if currentTime < nextClaimTime then
         local timeLeft = nextClaimTime - currentTime; local days = math.floor(timeLeft / 86400); local hours = math.floor((timeLeft % 86400) / 3600); local minutes = math.floor((timeLeft % 3600) / 60)
-        local message = string.format("%d hari, %d jam, dan %d menit", days, hours, minutes)
+        local message = string.format("%d day, %d hour, dan %d minute", days, hours, minutes)
         TriggerClientEvent('QBCore:Notify', src, Config.WeeklyClaim.Pesan.tunggu .. message, "error", 7000); return
     end
     local rewards = {}; local pool = {}; for k, v in pairs(Config.WeeklyClaim.RewardPool) do table.insert(pool, v) end

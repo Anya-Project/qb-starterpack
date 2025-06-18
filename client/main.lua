@@ -1,7 +1,7 @@
 --[[ 
     QB-StarterPack
-    Versi: 1.0.4
-    Penulis: AnyaProject
+    Version: 1.0.5
+    Author: AnyaProject
     Discord: https://discord.gg/rcqQ3J6Pcf
 ]]--
 
@@ -9,10 +9,15 @@ local QBCore = nil
 local npcPed = nil
 
 CreateThread(function()
+
     while QBCore == nil do
         QBCore = exports['qb-core']:GetCoreObject()
         if QBCore == nil then Wait(500) end
     end
+    
+    print('[qb-starterpack] QBCore is ready. Waiting 5 seconds before spawning the NPC to avoid floating issues.')
+    Wait(5000) 
+    
     Initialize()
 end)
 
@@ -20,7 +25,7 @@ function Initialize()
     SpawnNPC()
     exports['qb-target']:AddTargetModel(Config.NPC.model, {
         options = {
-            
+ 
             { type = 'client', event = 'qb-starterpack:client:showRules', icon = Config.Target.icon, label = Config.Target.label,
                 canInteract = function()
                     local pData = QBCore.Functions.GetPlayerData()
@@ -28,9 +33,9 @@ function Initialize()
                 end
             },
            
-            { type = 'server', event = 'qb-starterpack:server:claimWeekly', icon = 'fas fa-calendar-check', label = 'Klaim Hadiah Mingguan',
+            { type = 'server', event = 'qb-starterpack:server:claimWeekly', icon = 'fas fa-calendar-check', label = 'Claim Weekly Reward',
                 canInteract = function()
-                    if not Config.WeeklyClaim.enabled then return false end -- Cek jika fitur aktif
+                    if not Config.WeeklyClaim.enabled then return false end
                     local pData = QBCore.Functions.GetPlayerData()
                     return pData.metadata['has_claimed_starterpack']
                 end
@@ -72,24 +77,45 @@ RegisterNetEvent('qb-starterpack:client:showRules', function()
     })
     if result == 'confirm' then
         PlayClaimAnimation()
-        QBCore.Functions.Notify("Terima kasih telah setuju. Sedang memproses paket Anda...", "success", 7000)
+        QBCore.Functions.Notify("Thank you for agreeing. Processing your starter pack...", "success", 7000)
         TriggerServerEvent('qb-starterpack:server:beriPaket')
     else
-        QBCore.Functions.Notify("Anda harus menyetujui peraturan untuk mengklaim paket.", "error")
+        QBCore.Functions.Notify("You must agree to the rules to claim your pack.", "error")
     end
 end)
 
 RegisterNetEvent('qb-starterpack:client:spawnVehicle', function(vehicleModel, plate)
-    print('^3[CLIENT-SIDE] MENERIMA PERINTAH SPAWN MOBIL^7')
+    print('^3[CLIENT-SIDE] Received command to spawn vehicle...^7')
     local playerPed = PlayerPedId()
     local spawnPoint = Config.Vehicle.spawnPoint
-    QBCore.Functions.Notify("Kendaraan Anda sedang disiapkan...", "primary", 5000)
+    
+    QBCore.Functions.Notify("Your vehicle is being prepared...", "primary", 5000)
+
     QBCore.Functions.SpawnVehicle(vehicleModel, function(vehicle)
         SetVehicleNumberPlateText(vehicle, plate)
         SetEntityHeading(vehicle, spawnPoint.w)
+        
+        if Config.FuelSystem.setFuelToFull then
+            if Config.FuelSystem.system == 'legacy' and exports['LegacyFuel'] then
+                exports['LegacyFuel']:SetFuel(vehicle, 100.0)
+                print('^2[Fuel] Fuel set to 100% using LegacyFuel.^7')
+            elseif Config.FuelSystem.system == 'cdn' and exports['cdn-fuel'] then
+                exports['cdn-fuel']:SetFuel(vehicle, 100.0)
+                print('^2[Fuel] Fuel set to 100% using cdn-fuel.^7')
+            elseif Config.FuelSystem.system == 'ox' and exports.ox_fuel then
+                Entity(vehicle).state:set('fuel', 100, true)
+                print('^2[Fuel] Fuel set to 100% using ox_fuel.^7')
+            elseif Config.FuelSystem.system == 'none' then
+                SetVehicleFuelLevel(vehicle, 100.0)
+                print('^2[Fuel] Fuel set to 100% using native GTA method.^7')
+            end
+        end
+
         TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
         TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(vehicle))
         SetVehicleEngineOn(vehicle, true, true)
-        QBCore.Functions.Notify("Selamat menikmati kendaraan baru Anda!", "success", 8000)
+        
+        QBCore.Functions.Notify("Enjoy your new vehicle!", "success", 8000)
     end, spawnPoint, true)
 end)
+
