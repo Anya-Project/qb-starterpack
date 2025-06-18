@@ -129,7 +129,7 @@ Config.WeeklyClaim = {
 
 ![Preview 1](https://i.imgur.com/yndqDg0.png)
 ![Preview 2](https://i.imgur.com/qe3kdrL.png)
-![Preview 3](https://i.imgur.com/lM6XWJE.png)
+![Preview 3](https://i.imgur.com/Gj5cvSV.jpeg)
 
 
 
