@@ -1,6 +1,4 @@
-### Hi, I'm Anya! 👋 
-📫 Reach me at: (https://discord.gg/rcqQ3J6Pcf)
-
+### THIS IS OLD VERSION, NEW VERSION CHECK THIS OUT ([https://discord.gg/rcqQ3J6Pcf](https://github.com/Anya-Project/ap_starterpack))
 
 ## ▶️ Main Features
 
