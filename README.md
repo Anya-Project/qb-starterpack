@@ -1,4 +1,4 @@
-### THIS IS OLD VERSION, NEW VERSION CHECK THIS OUT [https://github.com/Anya-Project/ap_starterpack]
+### THIS IS OLD VERSION, NEW VERSION CHECK THIS OUT (https://github.com/Anya-Project/ap_starterpack)
 
 ## ▶️ Main Features
 
